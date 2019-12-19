@@ -1,0 +1,57 @@
+#Project Information
+site_name: Lógica de Programação com Arduino
+site_description: Projeto de Extensão Met@ Aprendiz@gem UFABC
+site_author: Met@ Aprendiz@gem UFABC
+
+#Repository
+#repo_name: 
+#repo_url: 
+
+# Copyright
+copyright: 'Copyright &copy; 2019 - 2020 Met@ Aprendiz@gem UFABC'
+
+#Theme Style
+theme:
+     name: 'material'
+
+# Options
+     palette:
+        primary: 'Teal'
+        accent: 'Teal'
+
+# Extensions
+markdown_extensions:
+  - admonition
+  - codehilite:
+      guess_lang: false
+  - toc:
+      permalink: true
+  - pymdownx.superfences
+  - pymdownx.details
+    
+#Pages
+nav:
+  - Sobre o Curso: index.md
+  - Teoria:
+    - Introdução: Teoria/introducao.md
+    - Programação: Teoria/Programacao.md
+  - Projetos:
+    - Índice: Projetos/projectList.md
+    - Hello World: Projetos/helloWorld.md
+    - Serial Read: Projetos/serialRead.md
+    - Println Formats: Projetos/printlnFormats.md
+    - Blink: Projetos/blink.md
+    - Semaphore: Projetos/semaphore.md
+    - Led RGB: Projetos/ledRGB.md
+    - Turn On/Off with If: Projetos/turnOnOffWithIf.md
+    - Turn On/Off with If Else: Projetos/turnOnOffWithIfElse.md
+    - Turn On/Off with Switch Case: Projetos/turnOnOffWithSwitchCase.md
+    - Button: Projetos/button.md
+    - Battery Charger: Projetos/batteryCharger.md
+    - Smart Light: Projetos/smartLight.md
+    - Fade with While: Projetos/fadeWithWhile.md
+    - Fade with For: Projetos/fadeWithFor.md
+    - Button Lock: Projetos/buttonLock.md
+    - Up Down Blink: Projetos/upDownBlink.md
+    - Turn On/Off with If Else Lock: Projetos/turnOnOffWithIfElseLock.md
+    - Semaphore with Flashing Alert: Projetos/semaphoreWithFlashingAlert.md
