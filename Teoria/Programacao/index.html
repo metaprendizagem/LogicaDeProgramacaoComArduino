@@ -1,0 +1,1122 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Projeto de Extensão Met@ Aprendiz@gem UFABC">
+      
+      
+      
+        <meta name="author" content="Met@ Aprendiz@gem UFABC">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.5.0">
+    
+    
+      
+        <title>Programação - Lógica de Programação com Arduino</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.1b62728e.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#009688">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.268332fc.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="teal" data-md-color-accent="teal">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#operadores" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="Lógica de Programação com Arduino" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Lógica de Programação com Arduino
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Programação
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="Lógica de Programação com Arduino" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Lógica de Programação com Arduino
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Sobre o Curso" class="md-nav__link">
+      Sobre o Curso
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Teoria
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Teoria
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../introducao/" title="Introdução" class="md-nav__link">
+      Introdução
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Programação
+      </label>
+    
+    <a href="./" title="Programação" class="md-nav__link md-nav__link--active">
+      Programação
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#operadores" class="md-nav__link">
+    Operadores
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#constantes" class="md-nav__link">
+    Constantes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variaveis" class="md-nav__link">
+    Variáveis
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#funcoes" class="md-nav__link">
+    Funções
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estruturas-de-selecao" class="md-nav__link">
+    Estruturas de Seleção
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#if-condicional-e-if-else" class="md-nav__link">
+    If (condicional) e if... Else
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#switchcase" class="md-nav__link">
+    Switch...case
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estruturas-de-repeticao" class="md-nav__link">
+    Estruturas de Repetição
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#while" class="md-nav__link">
+    While
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for" class="md-nav__link">
+    For
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Projetos
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Projetos
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Projetos/projectList/" title="Índice" class="md-nav__link">
+      Índice
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Projetos/helloWorld/" title="Hello World" class="md-nav__link">
+      Hello World
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Projetos/serialRead/" title="Serial Read" class="md-nav__link">
+      Serial Read
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Projetos/printlnFormats/" title="Println Formats" class="md-nav__link">
+      Println Formats
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Projetos/blink/" title="Blink" class="md-nav__link">
+      Blink
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Projetos/semaphore/" title="Semaphore" class="md-nav__link">
+      Semaphore
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Projetos/ledRGB/" title="Led RGB" class="md-nav__link">
+      Led RGB
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Projetos/turnOnOffWithIf/" title="Turn On/Off with If" class="md-nav__link">
+      Turn On/Off with If
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Projetos/turnOnOffWithIfElse/" title="Turn On/Off with If Else" class="md-nav__link">
+      Turn On/Off with If Else
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Projetos/turnOnOffWithSwitchCase/" title="Turn On/Off with Switch Case" class="md-nav__link">
+      Turn On/Off with Switch Case
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Projetos/button/" title="Button" class="md-nav__link">
+      Button
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Projetos/batteryCharger/" title="Battery Charger" class="md-nav__link">
+      Battery Charger
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Projetos/smartLight/" title="Smart Light" class="md-nav__link">
+      Smart Light
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Projetos/fadeWithWhile/" title="Fade with While" class="md-nav__link">
+      Fade with While
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Projetos/fadeWithFor/" title="Fade with For" class="md-nav__link">
+      Fade with For
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Projetos/buttonLock/" title="Button Lock" class="md-nav__link">
+      Button Lock
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Projetos/upDownBlink/" title="Up Down Blink" class="md-nav__link">
+      Up Down Blink
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Projetos/turnOnOffWithIfElseLock/" title="Turn On/Off with If Else Lock" class="md-nav__link">
+      Turn On/Off with If Else Lock
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Projetos/semaphoreWithFlashingAlert/" title="Semaphore with Flashing Alert" class="md-nav__link">
+      Semaphore with Flashing Alert
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#operadores" class="md-nav__link">
+    Operadores
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#constantes" class="md-nav__link">
+    Constantes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variaveis" class="md-nav__link">
+    Variáveis
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#funcoes" class="md-nav__link">
+    Funções
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estruturas-de-selecao" class="md-nav__link">
+    Estruturas de Seleção
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#if-condicional-e-if-else" class="md-nav__link">
+    If (condicional) e if... Else
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#switchcase" class="md-nav__link">
+    Switch...case
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estruturas-de-repeticao" class="md-nav__link">
+    Estruturas de Repetição
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#while" class="md-nav__link">
+    While
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for" class="md-nav__link">
+    For
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Programação</h1>
+                
+                <p>Trabalhar com <a href="https://www.arduino.cc/">Arduino</a> é bastante simples sua programação é dividida em dois blocos que são escritos em linguagem C/C++. Um dos blocos no escopo do código é o void <a href="https://www.arduino.cc/reference/pt/language/structure/sketch/setup/">setup()</a>, onde faremos a configuração dos pinos a serem utilizados. No outro bloco, o void <a href="https://www.arduino.cc/reference/pt/language/structure/sketch/loop/">loop()</a>, será executado o código de comando  em ciclos repetitivos. Abaixo segue o exemplo mais simples disponível mostrando o uso dos dois blocos:</p>
+<div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">led</span> <span class="o">=</span> <span class="mi">13</span><span class="p">;</span>
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+<span class="n">pinMode</span><span class="p">(</span><span class="n">led</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
+<span class="n">digitalWrite</span><span class="p">(</span><span class="n">led</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span> 
+<span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span> 
+<span class="n">digitalWrite</span><span class="p">(</span><span class="n">led</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span> 
+<span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span> 
+<span class="p">}</span>
+</pre></div>
+
+<p>O código acima é um simples teste onde o primeiro bloco está dizendo que o pino 13 (led) do Arduino será saída, e no segundo está dizendo que a saída será alta (5V) por mil milissegundos (1 segundo) e em seguida ficará desligada também por mil milissegundos. Vale observar que a função <a href="https://www.arduino.cc/reference/pt/language/functions/time/delay/">delay()</a> conta o tempo em milissegundos.</p>
+<h2 id="operadores">Operadores<a class="headerlink" href="#operadores" title="Permanent link">&para;</a></h2>
+<p>Saber usar os operadores de maneira correta é essencial na programação tanto operadores aritméticos, lógicos e de comparação, por isso segue abaixo a tabela com os símbolos e suas respectivas funções:</p>
+<table>
+<thead>
+<tr>
+<th>Símbolos</th>
+<th>Funções</th>
+<th>Tipo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>x++</td>
+<td>x = x + 1</td>
+<td>Aritmética</td>
+</tr>
+<tr>
+<td>x--</td>
+<td>x = x - 1</td>
+<td>Aritmética</td>
+</tr>
+<tr>
+<td>x += y</td>
+<td>x = x + y</td>
+<td>Aritmética</td>
+</tr>
+<tr>
+<td>x -= y</td>
+<td>x = x - y</td>
+<td>Aritmética</td>
+</tr>
+<tr>
+<td>x *= y</td>
+<td>x = x * y</td>
+<td>Aritmética</td>
+</tr>
+<tr>
+<td>x /= y</td>
+<td>x = x / y</td>
+<td>Aritmética</td>
+</tr>
+<tr>
+<td>x ==y</td>
+<td>x É igual a y</td>
+<td>Comparação</td>
+</tr>
+<tr>
+<td>x != y</td>
+<td>x é diferente de y</td>
+<td>Comparação</td>
+</tr>
+<tr>
+<td>x &lt; y</td>
+<td>x é menor que y</td>
+<td>Comparação</td>
+</tr>
+<tr>
+<td>x &gt; y</td>
+<td>x é maior que y</td>
+<td>Comparação</td>
+</tr>
+<tr>
+<td>x &lt;= y</td>
+<td>x é menor igual y</td>
+<td>Comparação</td>
+</tr>
+<tr>
+<td>x &gt;= y</td>
+<td>x é maior igual y</td>
+<td>Comparação</td>
+</tr>
+<tr>
+<td>&amp;&amp;</td>
+<td>Porta lógica “E” (AND)</td>
+<td>Lógicos</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>!</td>
+<td>Porta lógica “NÃO” (NOT)</td>
+<td>Lógicos</td>
+</tr>
+</tbody>
+</table>
+<h2 id="constantes">Constantes<a class="headerlink" href="#constantes" title="Permanent link">&para;</a></h2>
+<p>Constantes são valores que não podem ser alterados, normalmente assumem dois valores e podem ser interpretados como números binários 0 (zero) e 1 (um).</p>
+<ul>
+<li>TRUE/FALSE: são constantes booleanas que definem estados lógicos. Verdadeiro é qualquer valor que não seja zero. Falso é sempre o valor zero.</li>
+<li>HIGH/LOW: essas constantes definem as tensões nos pinos digitais do Arduino. Alto é uma tensão de 5 volts; baixo, o terra (ou 0 volt).</li>
+<li>INPUT/OUTPUT: são constantes programadas pela função <a href="https://www.arduino.cc/reference/pt/language/functions/digital-io/pinmode/">pinMode()</a> para os pinos do Arduino; eles podem ser entradas (de sensores), INPUT ou podem ser saídas (de controle), OUTPUT.</li>
+</ul>
+<h2 id="variaveis">Variáveis<a class="headerlink" href="#variaveis" title="Permanent link">&para;</a></h2>
+<p>As variáveis são posições na memória do programa que possuem um nome e o tipo de informação que irão guardar. Essas posições podem inicialmente estar vazias ou contar algum valor e sempre podem ser alteradas pelo programa ou pelo programador. A variável deve ser declarada antes de ser chamada e deve constituir de um nome e o tipo. Uma variável pode ser global ou local de acordo de onde ela foi declarada, se for logo no início, antes da função void setup(), ela será global e pode ser usada e “vista” por qualquer função do programa. Se for declarada dentro de uma função, ela será local e será usada e “vista” somente por essa função.
+- byte - esse tipo armazena 8 bits (0-255);
+- int - armazena números inteiros de até 16 bits;
+- long - armazena números inteiros de até 32 bits;
+- float - variáveis deste tipo podem armazenar números fracionários de até 32 bits.
+As vezes temos que guardar várias variáveis do mesmo tipo e usá-las com frequência. Sendo assim, guardamos em vetores. Abaixo mostramos como montar vetores no Arduino, lembrando que sempre a primeira posição será a posição 0.
+- Para declarar vetores diga seu tipo e um nome seguido de colchetes, quando declarar valores separe-os com vírgula e sempre entre chaves como no exemplo: <code>int nomeVetor [ ] = {1, 3, 4, 7}</code>; 
+- Pode-se também declarar o tamanho do vetor, para isso coloque o número de termos entre os colchetes como no exemplo: <code>int nomeVetor[13]</code>;
+- Pode-se também armazenar um determinado valor em um lugar específico do vetor como no exemplo que guarda um inteiro de valor 2 na posição 8 do vetor: <code>int nomeVetor[8]= 2</code>;</p>
+<h2 id="funcoes">Funções<a class="headerlink" href="#funcoes" title="Permanent link">&para;</a></h2>
+<p>Muitas vezes precisamos executar a mesma tarefa diversas vezes. Quando isso acontece, para diminuir as chances de erros e deixar o código mais claro criamos funções. No Arduino também utilizamos muito essa ferramenta. Abaixo segue de modo simplificado como criar funções no Arduino e tem basicamente a seguinte estrutura:</p>
+<ul>
+<li>Tipo da função (int, float, char, bool, etc)</li>
+<li>Nome da função (o nome que achar melhor)</li>
+<li>Os parâmetros que são passados para a função</li>
+<li>Operação que deseja que a função execute</li>
+<li>Retorno do valor (ou valores) que a função calculou</li>
+</ul>
+<p>Abaixo temos um exemplo de função que recebe os valores de a, b, c, calcula as raízes e retorna a raiz positiva x1;</p>
+<div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="nf">bhaskaraFunction</span><span class="p">(</span><span class="kt">int</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kt">double</span> <span class="n">delta</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">;</span>
+  <span class="n">delta</span> <span class="o">=</span> <span class="n">sq</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">-</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">a</span> <span class="o">*</span> <span class="n">c</span><span class="p">;</span>
+  <span class="n">x1</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">+</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">delta</span><span class="p">))</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+  <span class="n">x2</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">b</span> <span class="o">-</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">delta</span><span class="p">))</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+  <span class="k">return</span> <span class="n">x1</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Temos funções na biblioteca do Arduino que são muito úteis. Essas funções podem ser de tempo, matemáticas e de entrada e saída. Segue algumas principais delas com seus respectivos usos:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Funções Matemáticas</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Função</td>
+<td>Função</td>
+<td>Descrição</td>
+</tr>
+<tr>
+<td>pow(base, exp)</td>
+<td>pow(base, exp)</td>
+<td>Elevar um número à potência</td>
+</tr>
+<tr>
+<td>sq(x)</td>
+<td>sq(x)</td>
+<td>Eleva x ao quadrado</td>
+</tr>
+<tr>
+<td>sqrt(k)</td>
+<td>sqrt(k)</td>
+<td>Raiz quadrada de k</td>
+</tr>
+<tr>
+<td>abs(y)</td>
+<td>abs(y)</td>
+<td>Módulo de y, valor absoluto</td>
+</tr>
+<tr>
+<td>min(x, y)</td>
+<td>min(x, y)</td>
+<td>Retorna menor número entre x e y int</td>
+</tr>
+<tr>
+<td>max(x, y)</td>
+<td>max(x, y)</td>
+<td>Retorna maior número entre x e y int</td>
+</tr>
+<tr>
+<td>random(min, max)</td>
+<td>random(min, max)</td>
+<td>Retorna número aleatório entre min e max</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Funções de Tempo</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>delay(ms)</td>
+<td>delay(ms)</td>
+<td>Pausa o programa por ms milissegundos</td>
+</tr>
+<tr>
+<td>delayMicroseconds(us)</td>
+<td>delayMicroseconds(us)</td>
+<td>Pausa o programa por us microsegundos</td>
+</tr>
+<tr>
+<td>millis(t) / micro(us)</td>
+<td>millis(t) / micro(us)</td>
+<td>Tempo em milissegundos / micro segundos desde que programa começou a executar</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Funções de Entrada e Saída</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pinMode(pin, I/O)</td>
+<td>pinMode(pin, I/O)</td>
+<td>Configura pino específico para ser I/O</td>
+</tr>
+<tr>
+<td>digitalWrite( )</td>
+<td>digitalWrite( )</td>
+<td>Escreve HIGH/LOW em um pino digital</td>
+</tr>
+<tr>
+<td>digitalRead( )</td>
+<td>digitalRead( )</td>
+<td>Lê HIGH/LOW no pino digital específico</td>
+</tr>
+<tr>
+<td>analogWrite( )</td>
+<td>analogWrite( )</td>
+<td>Escreve valor analógico PWM em um pino</td>
+</tr>
+<tr>
+<td>analogRead( )</td>
+<td>analogRead( )</td>
+<td>Lê valor de tensão no pino específico</td>
+</tr>
+</tbody>
+</table>
+<h2 id="estruturas-de-selecao">Estruturas de Seleção<a class="headerlink" href="#estruturas-de-selecao" title="Permanent link">&para;</a></h2>
+<p>Em diversos momentos precisamos definir pontos de escolha em nossos programas de tal forma a mudar o fluxo de eventos do algortmo. Para isso temos as chamadas estruturas de seleção, as quais nos permitem tomar tais escolhas dentro do programa.</p>
+<h3 id="if-condicional-e-if-else">If (condicional) e if... Else<a class="headerlink" href="#if-condicional-e-if-else" title="Permanent link">&para;</a></h3>
+<p>É um laço de controle de fluxo onde ele executa certas instruções somente se as condições dentro dos parênteses forem aceitas. As instruções devem ser colocadas depois do if e dentro de chaves (recomendado) ou não. Exemplo de uso do if:</p>
+<p><div class="codehilite"><pre><span></span><span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">120</span><span class="p">)</span>
+  <span class="n">digitalWrite</span><span class="p">(</span><span class="n">LEDpin1</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">120</span><span class="p">)</span>
+  <span class="n">digitalWrite</span><span class="p">(</span><span class="n">LEDpin</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">120</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">digitalWrite</span><span class="p">(</span><span class="n">LEDpin2</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="mi">120</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">digitalWrite</span><span class="p">(</span><span class="n">LEDpin1</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+  <span class="n">digitalWrite</span><span class="p">(</span><span class="n">LEDpin2</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+<img alt="11" src="../img/if.png" /></p>
+<p>Se acrescentarmos mais um bloco de instruções, pode-se criar o comando if... else, que nada mais é se a primeira condição (if) não for satisfeita o programa atua com as instruções dentro de else. O exemplo abaixo ilustra isso:</p>
+<div class="codehilite"><pre><span></span><span class="n">If</span><span class="p">(</span><span class="n">x</span> <span class="o">&gt;</span> <span class="mi">120</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">digitalWrite</span><span class="p">(</span><span class="n">LEDpin1</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+  <span class="n">digitalWrite</span><span class="p">(</span><span class="n">LEDpin2</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="n">digitalWrite</span><span class="p">(</span><span class="n">LEDpin1</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+  <span class="n">digitalWrite</span><span class="p">(</span><span class="n">LEDpin2</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="n">digitalWrite</span><span class="p">(</span><span class="n">LEDpin2</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+</pre></div>
+
+<p><img alt="12" src="../img/ifelse.png" /></p>
+<h3 id="switchcase">Switch...case<a class="headerlink" href="#switchcase" title="Permanent link">&para;</a></h3>
+<p>Esse laço controla o fluxo de programas permitindo o programador especificar diferentes códigos que deverão ser executados em diferentes condições. O switch compara o valor especificado com as sentenças e quando o valor é o mesmo, ele executa o código. Usualmente coloca-se a palavra break, assim quando uma condição é aceita o programa para de executar e pula para a próxima ação.</p>
+<p><div class="codehilite"><pre><span></span><span class="k">switch</span> <span class="p">(</span><span class="n">var</span><span class="p">)</span> <span class="p">{</span>
+<span class="k">case</span> <span class="n">var</span> <span class="o">=</span> <span class="mi">1</span><span class="o">:</span>
+  <span class="n">digitalWrite</span><span class="p">(</span><span class="n">LEDpin1</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+  <span class="k">break</span><span class="p">;</span>
+<span class="k">case</span> <span class="n">var</span> <span class="o">=</span> <span class="mi">2</span><span class="o">:</span>
+  <span class="n">digitalWrite</span><span class="p">(</span><span class="n">LEDpin1</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+  <span class="k">break</span><span class="p">;</span>
+<span class="k">case</span> <span class="n">var</span> <span class="o">=</span> <span class="mi">3</span><span class="o">:</span>
+  <span class="n">digitalWrite</span><span class="p">(</span><span class="n">LEDpin2</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+  <span class="k">break</span><span class="p">;</span>
+<span class="k">case</span> <span class="n">var</span> <span class="o">=</span> <span class="mi">4</span><span class="o">:</span>
+  <span class="n">digitalWrite</span><span class="p">(</span><span class="n">LEDpin2</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+  <span class="k">break</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+<img alt="13" src="../img/switchcase.png" /></p>
+<h2 id="estruturas-de-repeticao">Estruturas de Repetição<a class="headerlink" href="#estruturas-de-repeticao" title="Permanent link">&para;</a></h2>
+<p>Nos códigos dos programas muitas vezes é preciso executar uma função diversas vezes ou até que uma certa condição seja satisfeita. Para isso, usamos os comandos de laço que nada mais são comandos de repetição para se fazer uma determinada tarefa ou estabelecer o que fazer caso ela não seja feita. Os laços mais comuns são:</p>
+<h3 id="while">While<a class="headerlink" href="#while" title="Permanent link">&para;</a></h3>
+<p>É um dos laços mais usado nos programas. Sua função é executar determinadas instruções até que uma condição inicialmente verdadeira se torne falsa ou o contrário.</p>
+<p><div class="codehilite"><pre><span></span><span class="n">var</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">while</span> <span class="p">(</span><span class="n">var</span> <span class="o">&lt;</span> <span class="mi">200</span><span class="p">)</span> <span class="p">{</span>
+  <span class="n">digitalWrite</span><span class="p">(</span><span class="n">LEDpin1</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">)</span>
+  <span class="n">var</span> <span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+<img alt="14" src="../img/while.png" /></p>
+<h3 id="for">For<a class="headerlink" href="#for" title="Permanent link">&para;</a></h3>
+<p>A declaração for é a mais utilizada na programação e é usada para repetir as instruções colocadas entre chaves. Normalmente se usa um contador para fazer o ciclo desejado. Esse laço é dividido em três partes: for(inicialização; condição; incremento). Note que cada parâmetro dentro do parênteses é separado por ponto e vírgula.</p>
+<p><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">PWMpin</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{}</span>
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">255</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">analogWrite</span><span class="p">(</span><span class="n">PWMpin</span><span class="p">,</span> <span class="n">i</span><span class="p">);</span>
+    <span class="n">delay</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+<img alt="15" src="../img/for.png" /></p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../introducao/" title="Introdução" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Introdução
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../../Projetos/projectList/" title="Índice" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Índice
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2019 - 2020 Met@ Aprendiz@gem UFABC
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.a8b5e56f.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>
