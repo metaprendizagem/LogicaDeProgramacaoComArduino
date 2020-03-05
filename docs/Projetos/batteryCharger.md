@@ -1,4 +1,4 @@
-#Batery Charger
+#Battery Charger
 
 Este projeto tem como objetivo simular de forma simples o controle de carga de uma bateria comum.
 
@@ -6,23 +6,30 @@ Este projeto tem como objetivo simular de forma simples o controle de carga de u
 
  - 1 Arduino Uno Rev 3
  - 1 Cabo USB Tipo A-B
- - 1 Led Verde
+ - 2 Led Verde
  - 1 Led Amarelo
  - 1 Led Vermelho
- - 3 Resistor 220Ω
+ - 4 Resistor 220Ω
 
 ## Modelo esquemático em Protoboard
 
-![Modelo esquemático](../arq/)
+![Modelo esquemático](../arq/batteryCharger.png)
 
 ??? note "Código"
     ```c
-    const int pot = A0; 
+    
+    int pot = A0; 
     int valor; 
+
+    int vermelho = 13;
+    int amarelo = 10; 
+    int verde2 = 7;
+    int verde1 = 3;
 
     void setup() {
 
       Serial.begin(9600); 
+
     }
 
     void loop() {
@@ -34,35 +41,50 @@ Este projeto tem como objetivo simular de forma simples o controle de carga de u
 
         //Led Vermelho
 
-        if(incomingByte >= 0 && incomingByte < 40){
+        if(incomingByte >= 0 && incomingByte < 60){
+
             digitalWrite(vermelho, HIGH);
+            digitalWrite(amarelo, LOW);
+            digitalWrite(verde2, LOW);
+            digitalWrite(verde1, LOW);
+
             Serial.println("Liga Vermelho");
-        }
-        else if(incomingByte >= 40 && incomingByte < 80){
-            digitalWrite(vermelho, HIGH);
-            Serial.println("Desliga Vermelho");
         }
 
         //Led Amarelo
 
-        else if(incomingByte >= 80 && incomingByte < 120){
-            digitalWrite(vermelho, HIGH);
+        else if(incomingByte >= 60 && incomingByte < 120){
+
+            digitalWrite(vermelho, LOW);
+            digitalWrite(amarelo, HIGH);
+            digitalWrite(verde2, LOW);
+            digitalWrite(verde1, LOW);
+
             Serial.println("Liga Amarelo");
         }
-        else if(incomingByte >= 120 && incomingByte < 160){
-            digitalWrite(vermelho, HIGH);
-            Serial.println("Desliga Amarelo");
+
+        //Led Verde 2
+        
+        else if(incomingByte >= 120 && incomingByte < 180){
+            
+            digitalWrite(vermelho, LOW);
+            digitalWrite(amarelo, LOW);
+            digitalWrite(verde2, HIGH);
+            digitalWrite(verde1, LOW);
+
+            Serial.println("Liga Verde 2");
         }
 
-        //Led Verde
+        //Led Verde 1
         
-        else if(incomingByte >= 160 && incomingByte < 200){
-            digitalWrite(vermelho, HIGH);
-            Serial.println("Liga Verde");
-        }
-        else if(incomingByte >= 200){
-            digitalWrite(vermelho, HIGH);
-            Serial.println("Desliga Verde");
+        else if(incomingByte >= 180 && incomingByte < 255){
+
+            digitalWrite(vermelho, LOW);
+            digitalWrite(amarelo, LOW);
+            digitalWrite(verde2, LOW);
+            digitalWrite(verde1, HIGH);
+
+            Serial.println("Liga Verde 1");
         }
 
         delay(250); 
@@ -71,12 +93,23 @@ Este projeto tem como objetivo simular de forma simples o controle de carga de u
 
 ??? note "Código Comentado"
     ```c
-    const int pot = A0; 
+    
+    int pot = A0; 
     int valor; 
+
+    int vermelho = 13;
+    int amarelo = 10; 
+    int verde2 = 7;
+    int verde1 = 3;
 
     void setup() {
 
-      Serial.begin(9600); 
+      Serial.begin(9600);
+      pinMode(vermelho, OUTPUT);
+      pinMode(amarelo, OUTPUT);
+      pinMode(verde2, OUTPUT);
+      pinMode(verde1, OUTPUT); 
+
     }
 
     void loop() {
@@ -88,35 +121,50 @@ Este projeto tem como objetivo simular de forma simples o controle de carga de u
 
         //Led Vermelho
 
-        if(incomingByte >= 0 && incomingByte < 40){
+        if(incomingByte >= 0 && incomingByte < 60){
+
             digitalWrite(vermelho, HIGH);
+            digitalWrite(amarelo, LOW);
+            digitalWrite(verde2, LOW);
+            digitalWrite(verde1, LOW);
+
             Serial.println("Liga Vermelho");
-        }
-        else if(incomingByte >= 40 && incomingByte < 80){
-            digitalWrite(vermelho, HIGH);
-            Serial.println("Desliga Vermelho");
         }
 
         //Led Amarelo
 
-        else if(incomingByte >= 80 && incomingByte < 120){
-            digitalWrite(vermelho, HIGH);
+        else if(incomingByte >= 60 && incomingByte < 120){
+
+            digitalWrite(vermelho, LOW);
+            digitalWrite(amarelo, HIGH);
+            digitalWrite(verde2, LOW);
+            digitalWrite(verde1, LOW);
+
             Serial.println("Liga Amarelo");
         }
-        else if(incomingByte >= 120 && incomingByte < 160){
-            digitalWrite(vermelho, HIGH);
-            Serial.println("Desliga Amarelo");
+
+        //Led Verde 2
+        
+        else if(incomingByte >= 120 && incomingByte < 180){
+            
+            digitalWrite(vermelho, LOW);
+            digitalWrite(amarelo, LOW);
+            digitalWrite(verde2, HIGH);
+            digitalWrite(verde1, LOW);
+
+            Serial.println("Liga Verde 2");
         }
 
-        //Led Verde
+        //Led Verde 1
         
-        else if(incomingByte >= 160 && incomingByte < 200){
-            digitalWrite(vermelho, HIGH);
-            Serial.println("Liga Verde");
-        }
-        else if(incomingByte >= 200){
-            digitalWrite(vermelho, HIGH);
-            Serial.println("Desliga Verde");
+        else if(incomingByte >= 180 && incomingByte < 255){
+
+            digitalWrite(vermelho, LOW);
+            digitalWrite(amarelo, LOW);
+            digitalWrite(verde2, LOW);
+            digitalWrite(verde1, HIGH);
+
+            Serial.println("Liga Verde 1");
         }
 
         delay(250); 

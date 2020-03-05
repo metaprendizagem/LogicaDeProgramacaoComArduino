@@ -39,7 +39,7 @@ nav:
     - Índice: Projetos/projectList.md
     - Hello World: Projetos/helloWorld.md
     - Serial Read: Projetos/serialRead.md
-    - Println Formats: Projetos/printlnFormats.md
+    - Print String: Projetos/printString.md
     - Blink: Projetos/blink.md
     - Semaphore: Projetos/semaphore.md
     - Led RGB: Projetos/ledRGB.md

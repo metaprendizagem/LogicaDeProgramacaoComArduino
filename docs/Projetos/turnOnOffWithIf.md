@@ -1,4 +1,4 @@
-#Turn On/Off with If
+# Turn On/Off with If
 
 Este projeto tem como objetivo demonstrar o uso da estrutura de repetição [If](https://www.arduino.cc/reference/pt/language/structure/control-structure/if/) no controle de execução do programa.
 
@@ -13,7 +13,7 @@ Este projeto tem como objetivo demonstrar o uso da estrutura de repetição [If]
 
 ## Modelo esquemático em Protoboard
 
-![Modelo esquemático](../arq/)
+![Modelo esquemático](../arq/turnOnOffWithIf.png)
 
 ??? note "Código"
     ```c

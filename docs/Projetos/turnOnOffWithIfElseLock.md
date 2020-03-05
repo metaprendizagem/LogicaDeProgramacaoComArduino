@@ -1,4 +1,4 @@
-#Turn On/Off with If Else (Lock)
+# Turn On/Off with If Else (Lock)
 
 Este projeto tem como objetivo demonstrar o uso da estrutura de repetição [While](https://www.arduino.cc/reference/pt/language/structure/control-structure/while/) no bloqueio da função 'loop()' do Arduino.
 
@@ -13,7 +13,7 @@ Este projeto tem como objetivo demonstrar o uso da estrutura de repetição [Whi
 
 ## Modelo esquemático em Protoboard
 
-![Modelo esquemático](../arq/)
+![Modelo esquemático](../arq/turnOnOffWithIfElseLock.png)
 
 ??? note "Código"
     ```c

@@ -12,7 +12,7 @@ Este projeto tem como objetivo simular o funcionamento de um semáforo.
 
 ## Modelo esquemático em Protoboard
 
-![Modelo esquemático](../arq/)
+![Modelo esquemático](../arq/semaphore.png)
 
 ??? note "Código"
     ```c

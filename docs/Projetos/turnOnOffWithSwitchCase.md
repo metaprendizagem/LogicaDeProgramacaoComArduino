@@ -1,4 +1,4 @@
-#Turn On/Off with Switch Case
+# Turn On/Off with Switch Case
 
 Este projeto tem como objetivo demonstrar o uso da estrutura de repetição [Switch Case](https://www.arduino.cc/reference/pt/language/structure/control-structure/switchcase/) no controle de execução do programa.
 
@@ -13,7 +13,7 @@ Este projeto tem como objetivo demonstrar o uso da estrutura de repetição [Swi
 
 ## Modelo esquemático em Protoboard
 
-![Modelo esquemático](../arq/)
+![Modelo esquemático](../arq/turnOnOffWithSwitchCase.png)
 
 ??? note "Código"
     ```c

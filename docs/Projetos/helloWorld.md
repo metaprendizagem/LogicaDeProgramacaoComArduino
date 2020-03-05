@@ -9,7 +9,7 @@ Este projeto tem como objetivo demonstrar o uso da função [Serial.println()](h
 
 ## Modelo esquemático em Protoboard
 
-![Modelo esquemático](../arq/)
+![Modelo esquemático](../arq/helloWorld.png)
 
 ??? note "Código"
     ```c

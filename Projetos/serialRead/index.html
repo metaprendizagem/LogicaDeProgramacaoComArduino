@@ -351,8 +351,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../printlnFormats/" title="Println Formats" class="md-nav__link">
-      Println Formats
+    <a href="../printString/" title="Print String" class="md-nav__link">
+      Print String
     </a>
   </li>
 
@@ -608,8 +608,8 @@
 <li>Cabo USB Tipo A-B</li>
 </ul>
 <h2 id="modelo-esquematico-em-protoboard">Modelo esquemático em Protoboard<a class="headerlink" href="#modelo-esquematico-em-protoboard" title="Permanent link">&para;</a></h2>
-<p><img alt="Modelo esquemático" src="../arq/" /></p>
-<details class="note"><summary>Código</summary><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">incomingByte</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> 
+<p><img alt="Modelo esquemático" src="../../arq/serialRead.png" /></p>
+<details class="note"><summary>Código 1</summary><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">incomingByte</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> 
 
 <span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
   <span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">9600</span><span class="p">);</span> 
@@ -628,7 +628,7 @@
 </pre></div>
 
 </details>
-<details class="note"><summary>Código Comentado</summary><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">incomingByte</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> 
+<details class="note"><summary>Código Comentado 1</summary><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">incomingByte</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> 
 
 <span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
   <span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">9600</span><span class="p">);</span> 
@@ -642,6 +642,46 @@
 
         <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;I received: &quot;</span><span class="p">);</span>
         <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">incomingByte</span><span class="p">,</span> <span class="n">DEC</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+</details>
+<details class="note"><summary>Código 2</summary><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">incomingByte</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> 
+<span class="kt">char</span> <span class="n">inData</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+
+
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">9600</span><span class="p">);</span> 
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">Serial</span><span class="p">.</span><span class="n">available</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">incomingByte</span> <span class="o">=</span> <span class="n">Serial</span><span class="p">.</span><span class="n">read</span><span class="p">();</span>
+            <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;I received: &quot;</span><span class="p">);</span>
+            <span class="n">inData</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">incomingByte</span><span class="p">;</span>
+            <span class="n">inData</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;\0&#39;</span><span class="p">;</span> 
+            <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">inData</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+</details>
+<details class="note"><summary>Código Comentado 2</summary><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">incomingByte</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> 
+<span class="kt">char</span> <span class="n">inData</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span>
+
+
+<span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">9600</span><span class="p">);</span> 
+<span class="p">}</span>
+
+<span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">Serial</span><span class="p">.</span><span class="n">available</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">incomingByte</span> <span class="o">=</span> <span class="n">Serial</span><span class="p">.</span><span class="n">read</span><span class="p">();</span>
+            <span class="n">Serial</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;I received: &quot;</span><span class="p">);</span>
+            <span class="n">inData</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">incomingByte</span><span class="p">;</span>
+            <span class="n">inData</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;\0&#39;</span><span class="p">;</span> 
+            <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">inData</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -684,13 +724,13 @@
           </a>
         
         
-          <a href="../printlnFormats/" title="Println Formats" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../printString/" title="Print String" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Println Formats
+                Print String
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

@@ -87,7 +87,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#batery-charger" tabindex="1" class="md-skip">
+      <a href="#battery-charger" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -299,8 +299,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../printlnFormats/" title="Println Formats" class="md-nav__link">
-      Println Formats
+    <a href="../printString/" title="Print String" class="md-nav__link">
+      Print String
     </a>
   </li>
 
@@ -600,25 +600,31 @@
               
                 
                 
-                <h1 id="batery-charger">Batery Charger<a class="headerlink" href="#batery-charger" title="Permanent link">&para;</a></h1>
+                <h1 id="battery-charger">Battery Charger<a class="headerlink" href="#battery-charger" title="Permanent link">&para;</a></h1>
 <p>Este projeto tem como objetivo simular de forma simples o controle de carga de uma bateria comum.</p>
 <h2 id="lista-de-materiais">Lista de materiais:<a class="headerlink" href="#lista-de-materiais" title="Permanent link">&para;</a></h2>
 <ul>
 <li>1 Arduino Uno Rev 3</li>
 <li>1 Cabo USB Tipo A-B</li>
-<li>1 Led Verde</li>
+<li>2 Led Verde</li>
 <li>1 Led Amarelo</li>
 <li>1 Led Vermelho</li>
-<li>3 Resistor 220Ω</li>
+<li>4 Resistor 220Ω</li>
 </ul>
 <h2 id="modelo-esquematico-em-protoboard">Modelo esquemático em Protoboard<a class="headerlink" href="#modelo-esquematico-em-protoboard" title="Permanent link">&para;</a></h2>
-<p><img alt="Modelo esquemático" src="../arq/" /></p>
-<details class="note"><summary>Código</summary><div class="codehilite"><pre><span></span><span class="k">const</span> <span class="kt">int</span> <span class="n">pot</span> <span class="o">=</span> <span class="n">A0</span><span class="p">;</span> 
+<p><img alt="Modelo esquemático" src="../../arq/batteryCharger.png" /></p>
+<details class="note"><summary>Código</summary><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">pot</span> <span class="o">=</span> <span class="n">A0</span><span class="p">;</span> 
 <span class="kt">int</span> <span class="n">valor</span><span class="p">;</span> 
+
+<span class="kt">int</span> <span class="n">vermelho</span> <span class="o">=</span> <span class="mi">13</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">amarelo</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> 
+<span class="kt">int</span> <span class="n">verde2</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">verde1</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
 
 <span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
 
   <span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">9600</span><span class="p">);</span> 
+
 <span class="p">}</span>
 
 <span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
@@ -630,35 +636,50 @@
 
     <span class="c1">//Led Vermelho</span>
 
-    <span class="k">if</span><span class="p">(</span><span class="n">incomingByte</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">incomingByte</span> <span class="o">&lt;</span> <span class="mi">40</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">incomingByte</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">incomingByte</span> <span class="o">&lt;</span> <span class="mi">60</span><span class="p">){</span>
+
         <span class="n">digitalWrite</span><span class="p">(</span><span class="n">vermelho</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">amarelo</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">verde2</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">verde1</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+
         <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Liga Vermelho&quot;</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">incomingByte</span> <span class="o">&gt;=</span> <span class="mi">40</span> <span class="o">&amp;&amp;</span> <span class="n">incomingByte</span> <span class="o">&lt;</span> <span class="mi">80</span><span class="p">){</span>
-        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">vermelho</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
-        <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Desliga Vermelho&quot;</span><span class="p">);</span>
     <span class="p">}</span>
 
     <span class="c1">//Led Amarelo</span>
 
-    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">incomingByte</span> <span class="o">&gt;=</span> <span class="mi">80</span> <span class="o">&amp;&amp;</span> <span class="n">incomingByte</span> <span class="o">&lt;</span> <span class="mi">120</span><span class="p">){</span>
-        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">vermelho</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">incomingByte</span> <span class="o">&gt;=</span> <span class="mi">60</span> <span class="o">&amp;&amp;</span> <span class="n">incomingByte</span> <span class="o">&lt;</span> <span class="mi">120</span><span class="p">){</span>
+
+        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">vermelho</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">amarelo</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">verde2</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">verde1</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+
         <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Liga Amarelo&quot;</span><span class="p">);</span>
     <span class="p">}</span>
-    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">incomingByte</span> <span class="o">&gt;=</span> <span class="mi">120</span> <span class="o">&amp;&amp;</span> <span class="n">incomingByte</span> <span class="o">&lt;</span> <span class="mi">160</span><span class="p">){</span>
-        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">vermelho</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
-        <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Desliga Amarelo&quot;</span><span class="p">);</span>
+
+    <span class="c1">//Led Verde 2</span>
+
+    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">incomingByte</span> <span class="o">&gt;=</span> <span class="mi">120</span> <span class="o">&amp;&amp;</span> <span class="n">incomingByte</span> <span class="o">&lt;</span> <span class="mi">180</span><span class="p">){</span>
+
+        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">vermelho</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">amarelo</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">verde2</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">verde1</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+
+        <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Liga Verde 2&quot;</span><span class="p">);</span>
     <span class="p">}</span>
 
-    <span class="c1">//Led Verde</span>
+    <span class="c1">//Led Verde 1</span>
 
-    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">incomingByte</span> <span class="o">&gt;=</span> <span class="mi">160</span> <span class="o">&amp;&amp;</span> <span class="n">incomingByte</span> <span class="o">&lt;</span> <span class="mi">200</span><span class="p">){</span>
-        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">vermelho</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
-        <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Liga Verde&quot;</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">incomingByte</span> <span class="o">&gt;=</span> <span class="mi">200</span><span class="p">){</span>
-        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">vermelho</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
-        <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Desliga Verde&quot;</span><span class="p">);</span>
+    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">incomingByte</span> <span class="o">&gt;=</span> <span class="mi">180</span> <span class="o">&amp;&amp;</span> <span class="n">incomingByte</span> <span class="o">&lt;</span> <span class="mi">255</span><span class="p">){</span>
+
+        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">vermelho</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">amarelo</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">verde2</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">verde1</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+
+        <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Liga Verde 1&quot;</span><span class="p">);</span>
     <span class="p">}</span>
 
     <span class="n">delay</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span> 
@@ -666,12 +687,22 @@
 </pre></div>
 
 </details>
-<details class="note"><summary>Código Comentado</summary><div class="codehilite"><pre><span></span><span class="k">const</span> <span class="kt">int</span> <span class="n">pot</span> <span class="o">=</span> <span class="n">A0</span><span class="p">;</span> 
+<details class="note"><summary>Código Comentado</summary><div class="codehilite"><pre><span></span><span class="kt">int</span> <span class="n">pot</span> <span class="o">=</span> <span class="n">A0</span><span class="p">;</span> 
 <span class="kt">int</span> <span class="n">valor</span><span class="p">;</span> 
+
+<span class="kt">int</span> <span class="n">vermelho</span> <span class="o">=</span> <span class="mi">13</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">amarelo</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> 
+<span class="kt">int</span> <span class="n">verde2</span> <span class="o">=</span> <span class="mi">7</span><span class="p">;</span>
+<span class="kt">int</span> <span class="n">verde1</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
 
 <span class="kt">void</span> <span class="nf">setup</span><span class="p">()</span> <span class="p">{</span>
 
-  <span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">9600</span><span class="p">);</span> 
+  <span class="n">Serial</span><span class="p">.</span><span class="n">begin</span><span class="p">(</span><span class="mi">9600</span><span class="p">);</span>
+  <span class="n">pinMode</span><span class="p">(</span><span class="n">vermelho</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
+  <span class="n">pinMode</span><span class="p">(</span><span class="n">amarelo</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
+  <span class="n">pinMode</span><span class="p">(</span><span class="n">verde2</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span>
+  <span class="n">pinMode</span><span class="p">(</span><span class="n">verde1</span><span class="p">,</span> <span class="n">OUTPUT</span><span class="p">);</span> 
+
 <span class="p">}</span>
 
 <span class="kt">void</span> <span class="nf">loop</span><span class="p">()</span> <span class="p">{</span>
@@ -683,35 +714,50 @@
 
     <span class="c1">//Led Vermelho</span>
 
-    <span class="k">if</span><span class="p">(</span><span class="n">incomingByte</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">incomingByte</span> <span class="o">&lt;</span> <span class="mi">40</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">incomingByte</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">incomingByte</span> <span class="o">&lt;</span> <span class="mi">60</span><span class="p">){</span>
+
         <span class="n">digitalWrite</span><span class="p">(</span><span class="n">vermelho</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">amarelo</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">verde2</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">verde1</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+
         <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Liga Vermelho&quot;</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">incomingByte</span> <span class="o">&gt;=</span> <span class="mi">40</span> <span class="o">&amp;&amp;</span> <span class="n">incomingByte</span> <span class="o">&lt;</span> <span class="mi">80</span><span class="p">){</span>
-        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">vermelho</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
-        <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Desliga Vermelho&quot;</span><span class="p">);</span>
     <span class="p">}</span>
 
     <span class="c1">//Led Amarelo</span>
 
-    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">incomingByte</span> <span class="o">&gt;=</span> <span class="mi">80</span> <span class="o">&amp;&amp;</span> <span class="n">incomingByte</span> <span class="o">&lt;</span> <span class="mi">120</span><span class="p">){</span>
-        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">vermelho</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">incomingByte</span> <span class="o">&gt;=</span> <span class="mi">60</span> <span class="o">&amp;&amp;</span> <span class="n">incomingByte</span> <span class="o">&lt;</span> <span class="mi">120</span><span class="p">){</span>
+
+        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">vermelho</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">amarelo</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">verde2</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">verde1</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+
         <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Liga Amarelo&quot;</span><span class="p">);</span>
     <span class="p">}</span>
-    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">incomingByte</span> <span class="o">&gt;=</span> <span class="mi">120</span> <span class="o">&amp;&amp;</span> <span class="n">incomingByte</span> <span class="o">&lt;</span> <span class="mi">160</span><span class="p">){</span>
-        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">vermelho</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
-        <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Desliga Amarelo&quot;</span><span class="p">);</span>
+
+    <span class="c1">//Led Verde 2</span>
+
+    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">incomingByte</span> <span class="o">&gt;=</span> <span class="mi">120</span> <span class="o">&amp;&amp;</span> <span class="n">incomingByte</span> <span class="o">&lt;</span> <span class="mi">180</span><span class="p">){</span>
+
+        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">vermelho</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">amarelo</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">verde2</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">verde1</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+
+        <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Liga Verde 2&quot;</span><span class="p">);</span>
     <span class="p">}</span>
 
-    <span class="c1">//Led Verde</span>
+    <span class="c1">//Led Verde 1</span>
 
-    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">incomingByte</span> <span class="o">&gt;=</span> <span class="mi">160</span> <span class="o">&amp;&amp;</span> <span class="n">incomingByte</span> <span class="o">&lt;</span> <span class="mi">200</span><span class="p">){</span>
-        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">vermelho</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
-        <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Liga Verde&quot;</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">incomingByte</span> <span class="o">&gt;=</span> <span class="mi">200</span><span class="p">){</span>
-        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">vermelho</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
-        <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Desliga Verde&quot;</span><span class="p">);</span>
+    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">incomingByte</span> <span class="o">&gt;=</span> <span class="mi">180</span> <span class="o">&amp;&amp;</span> <span class="n">incomingByte</span> <span class="o">&lt;</span> <span class="mi">255</span><span class="p">){</span>
+
+        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">vermelho</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">amarelo</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">verde2</span><span class="p">,</span> <span class="n">LOW</span><span class="p">);</span>
+        <span class="n">digitalWrite</span><span class="p">(</span><span class="n">verde1</span><span class="p">,</span> <span class="n">HIGH</span><span class="p">);</span>
+
+        <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="s">&quot;Liga Verde 1&quot;</span><span class="p">);</span>
     <span class="p">}</span>
 
     <span class="n">delay</span><span class="p">(</span><span class="mi">250</span><span class="p">);</span> 

@@ -10,7 +10,7 @@ Este projeto tem como objetivo demonstrar como podemos programar o funcionamento
 
 ## Modelo esquemático em Protoboard
 
-![Modelo esquemático](../arq/)
+![Modelo esquemático](../arq/ledRGB.png)
 
 ??? note "Código"
     ```c

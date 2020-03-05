@@ -1,4 +1,4 @@
-#Turn On/Off with If Else
+# Turn On/Off with If Else
 
 Este projeto tem como objetivo demonstrar o uso da estrutura de repetição If [Else](https://www.arduino.cc/reference/pt/language/structure/control-structure/else/) no controle de execução do programa.
 
@@ -13,7 +13,7 @@ Este projeto tem como objetivo demonstrar o uso da estrutura de repetição If [
 
 ## Modelo esquemático em Protoboard
 
-![Modelo esquemático](../arq/)
+![Modelo esquemático](../arq/turnOnOffWithIfElse.png)
 
 ??? note "Código"
     ```c

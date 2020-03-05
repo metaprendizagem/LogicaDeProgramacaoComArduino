@@ -9,9 +9,9 @@ Este projeto tem como objetivo demonstrar o uso da função [Serial.read()](http
 
 ## Modelo esquemático em Protoboard
 
-![Modelo esquemático](../arq/)
+![Modelo esquemático](../arq/serialRead.png)
 
-??? note "Código"
+??? note "Código 1"
     ```c
     int incomingByte = 0; 
 
@@ -31,7 +31,7 @@ Este projeto tem como objetivo demonstrar o uso da função [Serial.read()](http
     }
     ```
 
-??? note "Código Comentado"
+??? note "Código Comentado 1"
     ```c
     int incomingByte = 0; 
 
@@ -47,6 +47,48 @@ Este projeto tem como objetivo demonstrar o uso da função [Serial.read()](http
 
             Serial.print("I received: ");
             Serial.println(incomingByte, DEC);
+        }
+    }
+    ```
+
+??? note "Código 2"
+    ```c
+    int incomingByte = 0; 
+    char inData[2];
+
+
+    void setup() {
+        Serial.begin(9600); 
+    }
+
+    void loop() {
+        if (Serial.available() > 0) {
+                incomingByte = Serial.read();
+                Serial.print("I received: ");
+                inData[0] = incomingByte;
+                inData[1] = '\0'; 
+                Serial.println(inData);
+        }
+    }
+    ```
+
+??? note "Código Comentado 2"
+    ```c
+    int incomingByte = 0; 
+    char inData[2];
+
+
+    void setup() {
+        Serial.begin(9600); 
+    }
+
+    void loop() {
+        if (Serial.available() > 0) {
+                incomingByte = Serial.read();
+                Serial.print("I received: ");
+                inData[0] = incomingByte;
+                inData[1] = '\0'; 
+                Serial.println(inData);
         }
     }
     ```

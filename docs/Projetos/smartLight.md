@@ -10,7 +10,7 @@ Este projeto tem como objetivo demonstrar como realizar o controle de luminosida
 
 ## Modelo esquemático em Protoboard
 
-![Modelo esquemático](../arq/)
+![Modelo esquemático](../arq/smartLight.png)
 
 ??? note "Código"
     ```c

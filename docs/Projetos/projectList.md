@@ -8,7 +8,7 @@ Abaixo segue a ordem que recomendamos para a execução dos projetos:
 
 [Ex2. Serial Read](serialRead.md)
 
-[Ex3. Println Formats](printlnFormats.md)
+[Ex3. Print String](printString.md)
 
 [Ex4. Blink](blink.md)
 
@@ -41,8 +41,10 @@ Abaixo segue a ordem que recomendamos para a execução dos projetos:
 [Ex18. Semaphore with Flashing Alert](semaphoreWithFlashingAlert.md)
 
 
-##Lista de Materiais
+## Lista de Materiais
 
 
-##Lista de Ferramentas e Equipamentos
+## Lista de Ferramentas 
+
+## Equipamentos
 

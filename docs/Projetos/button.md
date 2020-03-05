@@ -13,11 +13,11 @@ Este projeto tem como objetivo demonstrar como utilizar botões para leitura de 
 
 ## Modelo esquemático em Protoboard
 
-![Modelo esquemático](../arq/)
+![Modelo esquemático](../arq/button.png)
 
 ??? note "Código"
     ```c
-    int botao = 8; 
+    int botao = 4; 
     int led = 7; 
 
     int estado; 
@@ -39,7 +39,7 @@ Este projeto tem como objetivo demonstrar como utilizar botões para leitura de 
 
 ??? note "Código Comentado"
     ```c
-    int botao = 8; 
+    int botao = 4; 
     int led = 7; 
 
     int estado; 
